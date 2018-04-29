@@ -1,10 +1,13 @@
 # XPS15-9560-High-Sierra
 > XPS15 9560 吃苹果Clover
-
+/Users/jarden/hackintosh/XPS15-9560-High-Sierra/Post-install/kexts/
 本项目同步到码云仓库，方便访问github速度慢的朋友们
 [https://gitee.com/yeliujun/XPS15-9560-High-Sierra](https://gitee.com/yeliujun/XPS15-9560-High-Sierra)
 
 ## 更新日志
+#### 2018-04-30 
+1. CPU变频优化，将最低频率`1.3GHz`降到`0.8GHz`，添加`CPUFriendDataProvider.kext`，此kext只适用于`SMBIOS:Macbook Pro14,3`。
+
 #### 2018-04-27 (适配10.13.4 安全更新版本)
 1. 更新了自用的主题(Universe)
 2. 使用kextsToPatch对AppleGraphicsDevicePolicy进行patch，替代`NvidiaGraphicsFixup`，修正HDMI输出黑屏的问题
