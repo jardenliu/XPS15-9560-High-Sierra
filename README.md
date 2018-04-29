@@ -6,7 +6,7 @@
 
 ## 更新日志
 #### 2018-04-30 
-1. CPU变频优化，将最低频率`1.3GHz`降到`0.8GHz`，添加`CPUFriendDataProvider.kext`，此kext只适用于`SMBIOS:Macbook Pro14,3`。
+1. CPU变频优化，将最低频率`1.3GHz`降到`0.8GHz`，添加`CPUFriendDataProvider.kext`，此kext只适用于`SMBIOS:Macbook Pro14,3`。
 
 #### 2018-04-27 (适配10.13.4 安全更新版本)
 1. 更新了自用的主题(Universe)
