@@ -7,6 +7,7 @@
 ## 更新日志
 #### 2018-04-30 
 1. CPU变频优化，将最低频率`1.3GHz`降到`0.8GHz`，添加`CPUFriendDataProvider.kext`，此kext只适用于`SMBIOS:Macbook Pro14,3`。
+2. 添加`ALC298PluginFix`，耳机插拔状态切换方案二。
 
 #### 2018-04-27 (适配10.13.4 安全更新版本)
 1. 更新了自用的主题(Universe)
@@ -94,6 +95,7 @@
 6. 重启后，就可以登录你的Apple Id了.
 
 # 第四步：解决二合一耳机接口
+方案一：
 1. 解压`Post-install/ComboJack Installer.zip` (感谢[KNNSpeed](https://www.tonymacx86.com/threads/guide-dell-xps-15-9560-4k-touch-1tb-ssd-32gb-ram-100-adobergb.224486/page-9#post-1539760)提供的补丁)
 2. 使用终端cd到ComboJack Installer文件夹
 3. 执行命令`./install.sh`(提示需要输入密码)
@@ -103,6 +105,9 @@
 - 插入耳机后弹出提示窗口(根据提示选择你插入的设备类型即可)
 - 睡眠唤醒后请把耳机拔出再插进去重新选择类型使其正常工作
 - 虽然耳机能用了，不要对耳机音质抱有任何希望！买个DAC才是正解！
+
+方案二：
+1. 双击安装`Post-install/ALC298PluginFix/install双击自动安装.command`，安装ALCPluginFix守护进程。
 
 # 第五步：设置触控板手势
 1. `系统偏好设置`-`键盘`-`快捷键`-`启动台与程序船坞`,设置`显示启动台`快捷键，设置时，四指下滑。
