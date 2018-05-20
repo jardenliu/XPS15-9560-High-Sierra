@@ -21,20 +21,20 @@
 - 硬盘：东芝 NVMe 512G
 - WIFI网卡：已更换为博通DW1830
 - 屏幕分辨率：4K触控屏(Mac os下面可以单点触控)
-* (1080p的同学可以移除Clover中的CoreDisplayFixup.kext，放着也没啥事)
+* (1080p的同学可以移除CoreDisplayFixup.kext)
 
 
 ## 使用情况
 - 除了下面问题以外，其他全部都能用！
 
  *已知问题*
-- 雷电3接口不支持热插拔, 插入新设备后要重启才能用。
-- 读卡器无法使用(BIOS禁用可以省电)
-- 独显无法使用(由于使用了Nvidia Optimus技术隔壁linux也是无解)
-- 触摸板在三指上下左右滑时，有时候会误触
+- 雷电3接口不支持热插拔。
+- 读卡器无法使用
+- 独显无法使用
+- 触摸板在三指上下左右滑时，偶尔误触
 
-## kext更新
-安装或更新之前可以下载我提供kext，确保kext的驱动是最新的，避免驱动不支持最新版本。
+## 安装提示
+安装或更新系统之前可以下载我提供kext，确保kext的驱动是最新的，避免驱动不支持最新版本。
 
 ---
 **安装篇**
@@ -48,8 +48,8 @@
 4. 把Clover安装到硬盘EFI中(详细教程自己找，黑果小兵的博客也有写)
 
 > 注意事项
-- CLOVER最好使用最新版本。
-- 安装在SSD中最好使用APFS，你可以先转换一下(貌似安装时也会转换)。若安装在HDD中请不要使用(非常非常慢)。9560应该没有HDD吧。
+- CLOVER推荐使用最新版本。
+- 安装在SSD中最好使用APFS。若安装在HDD中请不要使用(非常非常慢)，HDD硬盘推荐使用HFS+。
 - `特别注意!!!`,进入系统后别急急忙忙登陆你尊贵的AppleID(请看第3步)
 - APFS需要UEFI驱动支持，请把CLOVER/drivers64UEFI/apfs.efi添加到你的Clover中。
 
@@ -61,20 +61,16 @@
 
 ### 1.安装kext到Clover
 
-1. 把`Post-install/kexts`文件夹里面的全部kext复制到`EFI/clover/kexts/Other`中
+1. 把`Post-install/Other-kexts`文件夹里面的全部kext复制到`EFI/clover/kexts/Other`中
 
-> 由于kext并非安装到SLE中，请删掉`LiluFriend.kext`
-
-> 非4K屏用户请删除CoreDisplayFixup.kext
 
 ### 2.安装kext到SLE(推荐)(安装系统完成后)
 
 > 强烈推荐使用`Kext Utility`以免去各种麻烦
 
-1. 打开`Kext Utility`把`Post-install/kexts`文件夹里面的全部kext扔进软件里等待完成
+1. 打开`Kext Utility`把`Post-install/SLE-kexts`文件夹里面的全部kext扔进软件里等待完成
 2. 先重启机子以防出问题再接着第三步
 
-> 4K屏用户请把`Post-install/4K-kexts`里的kext扔进软件里
 
 # 第三步：登陆你的AppleID(不用白果三码)
 
@@ -95,6 +91,9 @@
 6. 重启后，就可以登录你的Apple Id了.
 
 # 第四步：解决二合一耳机接口
+
+## 以下方法二选一
+
 方案一：
 1. 解压`Post-install/ComboJack Installer.zip` (感谢[KNNSpeed](https://www.tonymacx86.com/threads/guide-dell-xps-15-9560-4k-touch-1tb-ssd-32gb-ram-100-adobergb.224486/page-9#post-1539760)提供的补丁)
 2. 使用终端cd到ComboJack Installer文件夹
