@@ -7,7 +7,7 @@
 ## 更新日志
 
 #### 2018-05-23 
-1. 升级Clover版本到4494，兼容新旧版的Clover Configurator（主要是新旧版的Fix header位置发生变化）。
+1. 升级Clover版本到4494，兼容新旧版的Clover Configurator（主要是新旧版的Fix header位置发生变化）。
 
 #### 2018-04-30 
 1. CPU变频优化，将最低频率`1.3GHz`降到`0.8GHz`，添加`CPUFriendDataProvider.kext`，此kext只适用于`SMBIOS:Macbook Pro14,3`。
