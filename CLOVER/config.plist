@@ -12,8 +12,6 @@
 			<dict>
 				<key>AddHDMI</key>
 				<true/>
-				<key>FixHeaders</key>
-				<true/>
 			</dict>
 			<key>Patches</key>
 			<array>
@@ -261,6 +259,62 @@
 					VFBEMQ==
 					</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Device AC rename to ADP1  pair with SSDT-ADP1 - credit syscl</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					QUNfXw==
+					</data>
+					<key>Replace</key>
+					<data>
+					QURQMQ==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>rename HPET to XPET,  pair with SSDT-HPET.aml</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					SFBFVA==
+					</data>
+					<key>Replace</key>
+					<data>
+					WFBFVA==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change SAT0 to SATA</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					U0FUMA==
+					</data>
+					<key>Replace</key>
+					<data>
+					U0FUQQ==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Device SBTN rename to SLPB pair with SSDT-SLPB - credit syscl</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					U0JUTg==
+					</data>
+					<key>Replace</key>
+					<data>
+					U0xQQg==
+					</data>
+				</dict>
 			</array>
 		</dict>
 		<key>DropTables</key>
@@ -278,6 +332,8 @@
 				<string>PtidDevc</string>
 			</dict>
 		</array>
+		<key>FixHeaders</key>
+		<true/>
 		<key>ResetAddress</key>
 		<string>0x0CF9</string>
 		<key>ResetValue</key>
@@ -300,6 +356,10 @@
 		</dict>
 		<key>SortedOrder</key>
 		<array>
+			<string>SSDT-WIFI_Syspref.aml</string>
+			<string>SSDT-NVME_Syspref.aml</string>
+			<string>SSDT-IGPU_Syspref.aml</string>
+			<string>SSDT-XHCI_Syspref.aml</string>
 			<string>SSDT-XOSI.aml</string>
 			<string>SSDT-Config.aml</string>
 			<string>SSDT-SMBUS.aml</string>
@@ -323,12 +383,20 @@
 			<string>SSDT-TYPC.aml</string>
 			<string>SSDT-YTBT.aml</string>
 			<string>SSDT-I2C.aml</string>
+			<string>SSDT-ADP1.aml</string>
+			<string>SSDT-BATC.aml</string>
+			<string>SSDT-HPET.aml</string>
+			<string>SSDT-IGPU.aml</string>
+			<string>SSDT-IMEI.aml</string>
+			<string>SSDT-RMNE.aml</string>
+			<string>SSDT-SATA.aml</string>
+			<string>SSDT-XE42.aml</string>
 		</array>
 	</dict>
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>dart=0 darkwake=1 -disablegfxfirmware abm_firstpolldelay=16000</string>
+		<string>dart=0 brcmfx-country=#a -disablegfxfirmware abm_firstpolldelay=16000 darkwake=1</string>
 		<key>CustomLogo</key>
 		<string>Alternate</string>
 		<key>Debug</key>
@@ -454,12 +522,10 @@
 			<key>AMD</key>
 			<false/>
 			<key>Intel</key>
-			<true/>
+			<false/>
 			<key>Nvidia</key>
 			<false/>
 		</dict>
-		<key>ig-platform-id</key>
-		<string>0x591B0000</string>
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
@@ -509,6 +575,8 @@
 				<data>
 				AQAAdSU=
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>MatchOS</key>
 				<string>10.13.x</string>
 				<key>Name</key>
@@ -527,6 +595,8 @@
 				<data>
 				RiV1VCUwNHgA
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleBacklight</string>
 				<key>Replace</key>
@@ -544,6 +614,8 @@
 				AAAIAAIAAACYAAAAAgQKAAAIAACHAQAAAwYKAAAEAACH
 				AQAA/wAAAAEAAAAgAAAA
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
 				<key>Replace</key>
@@ -561,6 +633,8 @@
 				<data>
 				VUiJ5UFXQVZBVUFUU0iB7DgB
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>MatchOS</key>
 				<string>10.12.x,10.13.x</string>
 				<key>Name</key>
@@ -579,6 +653,8 @@
 				<data>
 				SIX/dEdIiwc=
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>IOBluetoothFamily</string>
 				<key>Replace</key>
@@ -595,6 +671,8 @@
 				<data>
 				g32UDw+DlwQAAA==
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>MatchOS</key>
 				<string>10.13.x</string>
 				<key>Name</key>
@@ -613,6 +691,8 @@
 				<data>
 				ugUAAAA=
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>MatchOS</key>
 				<string>10.9.3,10.9.4,10.9.5,10.10.x,10.11.x,10.12.x,10.13.x</string>
 				<key>Name</key>
@@ -620,6 +700,24 @@
 				<key>Replace</key>
 				<data>
 				ugAAAAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Modify 0x591B0000 VRAM 1536MB-&gt;2048MB</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				AQMDAwAAYAIAAFABAAAAYA==
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
+				<key>Replace</key>
+				<data>
+				AQMDAwAAYAIAAFABAAAAgA==
 				</data>
 			</dict>
 		</array>

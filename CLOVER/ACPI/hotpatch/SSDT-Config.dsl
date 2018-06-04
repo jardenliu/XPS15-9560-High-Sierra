@@ -33,7 +33,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         //
         //  0: desktop
         //  1: laptop
-        Name(TYPE, 0)
+        Name(TYPE, 1)
 
         // HIGH: High resolution/low resolution selection.  Affects IGPU injection.
         //
@@ -45,7 +45,7 @@ DefinitionBlock("", "SSDT", 2, "hack", "RMCF", 0)
         // IGPI: Override for ig-platform-id (or snb-platform-id).  Will be used if non-zero.
         // For example, if you wanted to inject a bogus id, 0x12345678
         //    Name(IGPI, 0x12345678)
-        Name(IGPI, 0)
+        Name(IGPI, 0x591B0000)
 
         // DPTS: For laptops only: set to 1 if you want to enable and
         //  disable the DGPU _PTS and _WAK.
