@@ -6,6 +6,9 @@
 
 ## 更新日志
 
+#### 2018-05-26
+1. 修正DW1830蓝牙唤醒不可用的问题，使用方法，用Post-install/DW1830BT的`SSDT-UIAC.aml`替换CLOVER/ACPI/patched的。
+
 #### 2018-05-23 
 1. 升级Clover版本到4494，兼容新旧版的Clover Configurator（主要是新旧版的Fix header位置发生变化）。
 
