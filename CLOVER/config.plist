@@ -568,6 +568,16 @@
 		<array>
 			<dict>
 				<key>Comment</key>
+				<string>IONVMeFamily: Ignore FLBAS bit:4 being set - for Plextor/LiteOn/Hynix (credit Pene)</string>
+				<key>Name</key>
+				<string>com.apple.iokit.IONVMeFamily</string>
+				<key>Find</key>
+				<data>ikga9sEQ</data>
+				<key>Replace</key>
+				<data>ikga9sEA</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Boot graphics glitch, 10.13.dp1 (credit denskop, RehabMan)</string>
 				<key>Disabled</key>
 				<false/>
