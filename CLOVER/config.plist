@@ -391,6 +391,7 @@
 			<string>SSDT-RMNE.aml</string>
 			<string>SSDT-SATA.aml</string>
 			<string>SSDT-XE42.aml</string>
+			<string>SSDT-ALC298.aml</string>
 		</array>
 	</dict>
 	<key>Boot</key>
