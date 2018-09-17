@@ -12,6 +12,8 @@
 			<dict>
 				<key>AddHDMI</key>
 				<true/>
+				<key>AddPNLF</key>
+				<false/>
 			</dict>
 			<key>Patches</key>
 			<array>
@@ -315,6 +317,20 @@
 					U0xQQg==
 					</data>
 				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Rename HS12 -&gt; HS92 to avoid the patchmatic error, pair with SSDT-TB.aml</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>
+					SFMxMg==
+					</data>
+					<key>Replace</key>
+					<data>
+					SFM5Mg==
+					</data>
+				</dict>
 			</array>
 		</dict>
 		<key>DropTables</key>
@@ -356,10 +372,10 @@
 		</dict>
 		<key>SortedOrder</key>
 		<array>
+			<string>SSDT-XHCI_Syspref.aml</string>
 			<string>SSDT-WIFI_Syspref.aml</string>
 			<string>SSDT-NVME_Syspref.aml</string>
 			<string>SSDT-IGPU_Syspref.aml</string>
-			<string>SSDT-XHCI_Syspref.aml</string>
 			<string>SSDT-XOSI.aml</string>
 			<string>SSDT-Config.aml</string>
 			<string>SSDT-SMBUS.aml</string>
@@ -386,18 +402,15 @@
 			<string>SSDT-ADP1.aml</string>
 			<string>SSDT-BATC.aml</string>
 			<string>SSDT-HPET.aml</string>
-			<string>SSDT-IGPU.aml</string>
-			<string>SSDT-IMEI.aml</string>
 			<string>SSDT-RMNE.aml</string>
 			<string>SSDT-SATA.aml</string>
-			<string>SSDT-XE42.aml</string>
 			<string>SSDT-ALC298.aml</string>
 		</array>
 	</dict>
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>dart=0 brcmfx-country=#a -disablegfxfirmware abm_firstpolldelay=16000 darkwake=1</string>
+		<string>dart=0 darkwake=1 brcmfx-country=#a abm_firstpolldelay=16000 keepsyms=1 -lilubetaall -disablegfxfirmware -ngfxbeta</string>
 		<key>CustomLogo</key>
 		<string>Alternate</string>
 		<key>Debug</key>
@@ -413,6 +426,13 @@
 		<key>XMPDetection</key>
 		<false/>
 	</dict>
+	<key>BootGraphics</key>
+	<dict>
+		<key>EFILoginHiDPI</key>
+		<integer>2</integer>
+		<key>UIScale</key>
+		<integer>2</integer>
+	</dict>
 	<key>CPU</key>
 	<dict>
 		<key>HWPEnable</key>
@@ -422,41 +442,76 @@
 	</dict>
 	<key>Devices</key>
 	<dict>
-		<key>AddProperties</key>
-		<array>
+		<key>Properties</key>
+		<dict>
+			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
-				<key>Comment</key>
-				<string>hda-gfx=onboard-1 for HDMI audio</string>
-				<key>Device</key>
-				<string>IntelGFX</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Key</key>
-				<string>hda-gfx</string>
-				<key>Value</key>
+				<key>AAPL,ig-platform-id</key>
 				<data>
-				b25ib2FyZC0xAA==
+				AAAbWQ==
+				</data>
+				<key>device-id</key>
+				<data>
+				G1kAAA==
+				</data>
+				<key>disable-external-gpu</key>
+				<data>
+				AQAAAA==
+				</data>
+				<key>enable-hdmi20</key>
+				<data>
+				AQAAAA==
+				</data>
+				<key>framebuffer-con2-busid</key>
+				<data>
+				AAAAAA==
+				</data>
+				<key>framebuffer-con2-enable</key>
+				<data>
+				AQAAAA==
+				</data>
+				<key>framebuffer-con2-flags</key>
+				<data>
+				AAAAAA==
+				</data>
+				<key>framebuffer-con2-index</key>
+				<data>
+				/////w==
+				</data>
+				<key>framebuffer-con2-pipe</key>
+				<data>
+				AAAAAA==
+				</data>
+				<key>framebuffer-con2-type</key>
+				<data>
+				AQAAAA==
+				</data>
+				<key>framebuffer-con3-enable</key>
+				<data>
+				AQAAAA==
+				</data>
+				<key>framebuffer-con3-flags</key>
+				<data>
+				AAAAAA==
+				</data>
+				<key>framebuffer-patch-enable</key>
+				<data>
+				AQAAAA==
+				</data>
+				<key>framebuffer-pipecount</key>
+				<data>
+				AgAAAA==
+				</data>
+				<key>framebuffer-portcount</key>
+				<data>
+				AgAAAA==
+				</data>
+				<key>framebuffer-unifiedmem</key>
+				<data>
+				AAAAgA==
 				</data>
 			</dict>
-		</array>
-		<key>FakeID</key>
-		<dict>
-			<key>#Kaby Lake-Comment</key>
-			<string>To avoid automatic Clover fake device-id (Skylake) injection</string>
-			<key>IntelGFX</key>
-			<string>0x591B8086</string>
 		</dict>
-		<key>USB</key>
-		<dict>
-			<key>AddClockID</key>
-			<true/>
-			<key>FixOwnership</key>
-			<true/>
-			<key>Inject</key>
-			<true/>
-		</dict>
-		<key>UseIntelHDMI</key>
-		<true/>
 	</dict>
 	<key>DisableDrivers</key>
 	<array>
@@ -515,8 +570,15 @@
 	<dict>
 		<key>EDID</key>
 		<dict>
+			<key>Custom</key>
+			<data>
+			AP///////wBNEHYUAAAAADEaAQSlIxN4DgXup1Q0uyULSVIAAAAB
+			AQEBAQEBAQEBAQEBAQEBTdAAoPBwPoAwIDUAWsIQAAAYAAAAAAAA
+			AAAAAAAAAAAAAAAAAAAA/gBZMlhORIBMUTE1NkQxAAAAAAACQQMo
+			ABIAAAsBCiAgAJs=
+			</data>
 			<key>Inject</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>Inject</key>
 		<dict>
@@ -574,7 +636,7 @@
 				<false/>
 				<key>Find</key>
 				<data>
-				AQAAdSU=
+				AQAAdSI=
 				</data>
 				<key>InfoPlistPatch</key>
 				<false/>
@@ -584,7 +646,7 @@
 				<string>IOGraphicsFamily</string>
 				<key>Replace</key>
 				<data>
-				AQAA6yU=
+				AQAA6yI=
 				</data>
 			</dict>
 			<dict>
@@ -629,7 +691,7 @@
 				<key>Comment</key>
 				<string>Bypass Thunderbolt 3 blacklist by patching shouldSkipEnumeration function, enables Razer Core and early TB3 devices (credit kid2010, netkas, syscl)</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				VUiJ5UFXQVZBVUFUU0iB7DgB
@@ -663,84 +725,6 @@
 				Qb4PAAAA60Q=
 				</data>
 			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Disable board-id check to prevent no signal (c) lvs1974, Pike R. Alpha, vit9696</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				ugUAAAA=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>MatchOS</key>
-				<string>10.9.3,10.9.4,10.9.5,10.10.x,10.11.x,10.12.x,10.13.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.AppleGraphicsDevicePolicy</string>
-				<key>Replace</key>
-				<data>
-				ugAAAAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Modify 0x591B0000 VRAM 1536MB-&gt;2048MB</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AQMDAwAAYAIAAFABAAAAYA==
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				AQMDAwAAYAIAAFABAAAAgA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>USB Port 15-&gt;26</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				g32IDw+DpwQ=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>MatchOS</key>
-				<string>10.13.6</string>
-				<key>Name</key>
-				<string>com.apple.driver.usb.AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				g32IGg+DpwQ=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>USB 10.13.4+ by PMHeart</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				g32UDw+DlwQAAA==
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>MatchOS</key>
-				<string>10.13.4,10.13.5</string>
-				<key>Name</key>
-				<string>com.apple.driver.usb.AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				g32UD5CQkJCQkA==
-				</data>
-			</dict>
 		</array>
 	</dict>
 	<key>RtVariables</key>
@@ -751,7 +735,7 @@
 		<string>0x67</string>
 		<key>ROM</key>
 		<data>
-		WDNsmCmL
+		NQn8mCmL
 		</data>
 	</dict>
 	<key>SMBIOS</key>
@@ -767,7 +751,7 @@
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>C02744200GUF504JC</string>
+		<string>C02751306GUDM6C1H</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>BoardVersion</key>
@@ -795,7 +779,7 @@
 		<key>ProductName</key>
 		<string>MacBookPro14,3</string>
 		<key>SerialNumber</key>
-		<string>C02VNR34HTD5</string>
+		<string>C02VVXYJHTD5</string>
 		<key>SmUUID</key>
 		<string>5938DFAB-47D4-467B-AB70-EB055F98298B</string>
 		<key>Version</key>
@@ -806,7 +790,7 @@
 		<key>BacklightLevel</key>
 		<string>0</string>
 		<key>CustomUUID</key>
-		<string>360F337C-54D4-44E9-B010-49E350761DD1</string>
+		<string>F5FF1768-B3CA-4705-BCB4-44B28021C6C4</string>
 		<key>InjectKexts</key>
 		<string>Yes</string>
 		<key>InjectSystemID</key>
