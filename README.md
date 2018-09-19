@@ -4,6 +4,9 @@
 本项目同步到码云仓库，方便访问github速度慢的朋友们
 [https://gitee.com/yeliujun/XPS15-9560-High-Sierra](https://gitee.com/yeliujun/XPS15-9560-High-Sierra)
 
+## 10.14配置已经更新
+- [jardenliu/XPS15-9560-Mojave](https://github.com/jardenliu/XPS15-9560-Mojave)
+
 ## 更新日志
 
 #### 2018-09-18 （10.13最后一次更新配置）
@@ -12,7 +15,7 @@
 2. 更换新显卡驱动`WhateverGreen`.
 3. 加入了风扇传感器，虽然毫无卵用
 
-- [jardenliu/XPS15-9560-Mojave](https://github.com/jardenliu/XPS15-9560-Mojave)即将到来
+
 
 #### 2018-07-11 （重要问题修复）
 1. 修复了一个长期以来忽略的`睡眠唤醒无声`问题（主要是我自己用的配置和这个还是有点区别的，哈哈哈！！！）
